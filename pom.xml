@@ -1,0 +1,141 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.example</groupId>
+    <artifactId>api-rest-assured-frameowork</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <name>api-rest-assured-framework</name>
+    <url>http://maven.apache.org</url>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>18</maven.compiler.source>
+        <maven.compiler.target>18</maven.compiler.target>
+        <testng.version>7.6.0</testng.version>
+        <cucumber-java.version>7.6.0</cucumber-java.version>
+        <cucumber-testng.version>7.6.0</cucumber-testng.version>
+        <rest-assured.version>5.3.0</rest-assured.version>
+        <jackson-databind.version>2.14.2</jackson-databind.version>
+        <jackson-datatype.version>2.14.2</jackson-datatype.version>
+        <sl4j-api.version>2.0.5</sl4j-api.version>
+        <sl4j-simple.version>2.0.5</sl4j-simple.version>
+        <lombok.version>1.18.26</lombok.version>
+    </properties>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>${testng.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>${cucumber-java.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-testng</artifactId>
+            <version>${cucumber-testng.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <version>${rest-assured.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson-databind.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.datatype</groupId>
+            <artifactId>jackson-datatype-jdk8</artifactId>
+            <version>${jackson-datatype.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${sl4j-api.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>${sl4j-simple.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <testFailureIgnore>true</testFailureIgnore>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <suiteXmlFiles>
+                        <suiteXmlFile>testng.xml</suiteXmlFile>
+                    </suiteXmlFiles>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>net.masterthought</groupId>
+                <artifactId>maven-cucumber-reporting</artifactId>
+                <version>5.0.0</version>
+                <executions>
+                    <execution>
+                        <id>execution</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <projectName>API Automation Framework</projectName>
+                            <!-- optional, per documentation set this to "true" to bypass generation of Cucumber Reports entirely, defaults to false if not specified -->
+                            <skip>false</skip>
+                            <!-- output directory for the generated report -->
+                            <outputDirectory>${project.build.directory}</outputDirectory>
+                            <!-- optional, defaults to outputDirectory if not specified -->
+                            <inputDirectory>${project.build.directory}/jsonReports</inputDirectory>
+                            <jsonFiles>
+                                <!-- supports wildcard or name pattern -->
+                                <param>**/*.json</param>
+                            </jsonFiles>
+                            <!-- optional, defaults to outputDirectory if not specified -->
+
+                            <!-- optional, set true to group features by its Ids -->
+                            <mergeFeaturesById>false</mergeFeaturesById>
+                            <!-- optional, set true to get a final report with the latest results of the same test from different test runs -->
+                            <mergeFeaturesWithRetest>false</mergeFeaturesWithRetest>
+                            <!-- optional, set true to fail build on test failures -->
+                            <checkBuildResult>false</checkBuildResult>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>
