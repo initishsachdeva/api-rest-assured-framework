@@ -1,0 +1,78 @@
+/**
+ * Some of the useful git commands which are used in day to day life
+ */
+
+//Some of the useful git commands which are used in day to day life
+
+    git init                        to initialize a git repository
+    git add .                       to add all files to staging
+    git commit -m "message"         to commit changes to local repo
+    git push origin branchname      to push changes to remote repo
+    git pull origin branchname      to pull changes from remote repo
+    git checkout branchname         to switch to a branch
+    git checkout -b branchname      to create a new branch and switch to it
+    git branch -d branchname        to delete a branch
+    git branch -D branchname        to force delete a branch
+    git merge branchname            to merge a branch to current branch
+    git log                         to view commit history
+    git log --oneline               to view commit history in one line
+    git log --oneline --graph        to view commit history in one line with graph
+    git log --oneline --graph --decorate   to view commit history in one line with graph and branch names
+    git log --oneline --graph --decorate --all   to view commit history in one line with graph and branch names and all branches
+    git log --oneline --graph --decorate --all -n 3   to view commit history in one line with graph and branch names and all branches and last 3 commits
+    git log --oneline --graph --decorate --all -n 3 --author="name"   to view commit history in one line with graph and branch names and all branches and last 3 commits by a specific author
+
+
+
+ 1. When creating a new repository
+  --------------------- or create a new repository on the command line
+ echo "# playwright-typescript-framework" >> README.md
+ git init
+ git add README.md
+ git commit -m "first commit"
+ git branch -M main
+ git remote add origin <url>
+ git push -u origin main
+
+ ===================================================================================
+ 2. When pushing current repo to remote
+ -------- or push an existing repository from the command line
+ git remote add origin <url>
+ git branch -M main
+ git push -u origin main
+
+
+ ===================================================================================
+
+ 3.  Making new branch and pushing to remote
+ git checkout master
+ git pull origin master
+ git checkout -b branchname
+
+ add your changes to staging and commit
+ git add .
+ git commit -m "message"
+
+ once done push your changes to remote repo
+ git push origin branchname
+
+
+ ---- to switch from one branch to another -----
+ 	git switch branchname
+
+
+ ===================================================================================
+
+
+ 4. Remove git tracking from local repo
+
+ $ rm -fr .git
+
+
+ 5. To change or check username and email configured with git
+
+ $ git config user.name "name"
+
+ $ git config user.email "email"
+
+
