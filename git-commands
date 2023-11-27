@@ -76,3 +76,46 @@
  $ git config user.email "email"
 
 
+
+//
+• git init
+• git clone
+• git add
+• git commit
+• git status
+• git diff
+• git checkout
+• git reset
+• git log
+• git show
+• git tag
+• git push
+• git pull
+Branching:
+• git branch
+• git checkout -b
+• git merge
+• git rebase
+• git branch --set-upstream-to
+• git branch --unset-upstream
+Merging:
+• git merge
+• git rebase
+Stashing:
+• git stash
+• git stash pop
+• git stash list
+• git stash apply
+• git stash drop
+Remotes:
+• git remote
+• git remote add
+• git remote remove
+• git fetch
+• git pull
+• git push
+• git clone --mirror
+Configuration:
+• git config
+• git global config
+• git reset config
